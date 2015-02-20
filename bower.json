@@ -1,0 +1,19 @@
+{
+  "name": "angular-controls",
+  "version": "0.0.1",
+  "homepage": "https://github.com/willcode2surf/angular-controls",
+  "authors": [
+    "Dustin Brown (@willcode2surf) (http://github.com/willcode2surf)"
+  ],
+  "description": "AngularJS Customizable Directives",
+  "main": [
+    "dist/angular-controls.js",
+    "dist/angular-controls.css"
+  ],
+  "keywords": [
+    "angular",
+    "customizable directives"
+  ],
+  "ignore": ["example"],
+  "license": "MIT"
+}

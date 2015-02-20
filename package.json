@@ -1,0 +1,42 @@
+{
+  "name": "angular-controls",
+  "version": "0.0.1",
+  "author": {
+    "name": "Dustin Brown (@willcode2surf)",
+    "email": "dustin.w.brown@gmail.com",
+    "url": "http://www.github.com/willCode2Surf"
+  },
+  "homepage": "https://github.com/willCode2Surf/angular-controls",
+  "bugs": "https://github.com/willCode2Surf/angular-controls/issues",
+  "keywords": [
+    "angular",
+    "controls",
+    "reusable directives"
+  ],
+  "description": "AngularJS Reusable Directives",
+  "license": "MIT",
+  "contributors": [
+    "willCode2Surf"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willCode2Surf/angular-controls.git"
+  },
+  "dependencies": {
+    "gulp-git": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-karma": "0.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-uglify": "^0.3.2",
+    "jshint-stylish": "^0.4.0",
+    "karma": "^0.12.22"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  }
+}
