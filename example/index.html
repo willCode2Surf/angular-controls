@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>angular-dropdowns example</title>
+    <title>angular-controls example</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="../dist/angular-controls.css">
@@ -14,14 +14,23 @@
   <body ng-app="app" style="margin-top:50px;">
     <div ng-controller="AppCtrl">
       <div style="margin:0 auto; text-align:center;">
-        <h1>Dropdown Select</h1>
+          
+        <h1>Basic Dropdown Select</h1>
         <p>You have selected: {{ddSelectSelected}}</p>
         <div dropdown-select="ddSelectOptions" dropdown-model="ddSelectSelected"></div>
         <hr>
-
+ <!-- 
+          <h1>Template Injected Select</h1>
+          <p>You have selected: {{ddSelectSelectedCustom}}</p>
+        <div dropdown-select="ddSelectOptions" dropdown-model="ddSelectSelectedTemplate"></div>
+        <hr>
           
-        <h1>Dropdown Menu</h1>
-
+        <h1>Style Injected Select</h1>
+          <p>You have selected: {{ddSelectSelectedCustom}}</p>
+        <div dropdown-select="ddSelectOptions" dropdown-model="ddSelectSelectedCustomStyle"></div>
+        <hr>
+          
+        
         <h2>On a Button</h2>
         <p>You have selected: {{ddMenuSelected}}</p>
         <button dropdown-menu="ddMenuOptions" dropdown-model="ddMenuSelected" class="btn-menu">
@@ -39,7 +48,7 @@
         <p>You have selected: {{ddMenuSelected3}}</p>
         <a href='' style="width:100px; margin:0 auto;" dropdown-menu="ddMenuOptions3" dropdown-model="ddMenuSelected3" class="">
           Menu
-        </a>
+        </a> -->
       </div>
     </div>
   </body>

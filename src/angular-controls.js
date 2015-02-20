@@ -4,10 +4,12 @@
 (function(window, angular, undefined) {
 'use strict';
 
-var dd = angular.module('ngDropdowns', []);
+var dd = angular.module('ngWebControls', []);
 
 dd.run(['$templateCache', function ($templateCache) {
-  $templateCache.put('ngDropdowns/templates/dropdownSelect.html', [
+  
+    
+  $templateCache.put('ngWebControls/templates/dropdownSelect.html', [
     '<div class="wrap-dd-select">',
       '<span class="selected">{{dropdownModel[labelField]}}</span>',
       '<ul class="dropdown">',
@@ -15,12 +17,13 @@ dd.run(['$templateCache', function ($templateCache) {
         ' class="dropdown-item"',
         ' dropdown-select-item="item"',
         ' dropdown-item-label="labelField">',
+      
         '</li>',
       '</ul>',
     '</div>'
   ].join(''));
 
-  $templateCache.put('ngDropdowns/templates/dropdownSelectItem.html', [
+  $templateCache.put('ngWebControls/templates/dropdownSelectItem.html', [
     '<li ng-class="{divider: (dropdownSelectItem.divider && !dropdownSelectItem[dropdownItemLabel]), \'divider-label\': (dropdownSelectItem.divider && dropdownSelectItem[dropdownItemLabel])}">',
       '<a href="" class="dropdown-item"',
       ' ng-if="!dropdownSelectItem.divider"',
@@ -34,7 +37,7 @@ dd.run(['$templateCache', function ($templateCache) {
     '</li>'
   ].join(''));
 
-  $templateCache.put('ngDropdowns/templates/dropdownMenu.html', [
+  $templateCache.put('ngWebControls/templates/dropdownMenu.html', [
     '<ul class="dropdown">',
       '<li ng-repeat="item in dropdownMenu"',
       ' class="dropdown-item"',
@@ -44,7 +47,7 @@ dd.run(['$templateCache', function ($templateCache) {
     '</ul>'
   ].join(''));
 
-  $templateCache.put('ngDropdowns/templates/dropdownMenuItem.html', [
+  $templateCache.put('ngWebControls/templates/dropdownMenuItem.html', [
     '<li ng-class="{divider: dropdownMenuItem.divider, \'divider-label\': dropdownMenuItem.divider && dropdownMenuItem[dropdownItemLabel]}">',
       '<a href="" class="dropdown-item"',
       ' ng-if="!dropdownMenuItem.divider"',
@@ -67,13 +70,28 @@ dd.directive('dropdownSelect', ['DropdownService',
       replace: true,
       scope: {
         dropdownSelect: '=',
+        dropdownOptions: '=',
         dropdownModel: '=',
         dropdownOnchange: '&'
       },
 
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
-
+        if (!$scope.dropdownOptions)
+        {
+            console.log($scope);
+            console.warn("No options provided for this object on the scope.");
+        }
+        else
+        {
+            console.log("options available.  json object says:");
+            // options as inline variable
+            if (angular.isString($scope.dropdownOptions)) {
+                $scope.dropdownOptions = angular.toJson($scope.dropdownOptions);
+            }
+            
+        }
+          
         DropdownService.register($element);
 
         this.select = function (selected) {
@@ -94,7 +112,7 @@ dd.directive('dropdownSelect', ['DropdownService',
           DropdownService.unregister($element);
         });
       }],
-      templateUrl: 'ngDropdowns/templates/dropdownSelect.html' 
+      templateUrl: 'ngWebControls/templates/dropdownSelect.html' 
     };
   }
 ]);
@@ -118,7 +136,7 @@ dd.directive('dropdownSelectItem', [
         };
       },
 
-      templateUrl: 'ngDropdowns/templates/dropdownSelectItem.html' 
+      templateUrl: 'ngWebControls/templates/dropdownSelectItem.html' 
     };
   }
 ]);
@@ -137,7 +155,7 @@ dd.directive('dropdownMenu', ['$parse', '$compile', 'DropdownService', '$templat
       controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         $scope.labelField = $attrs.dropdownItemLabel || 'text';
 
-        var $template = angular.element($templateCache.get('ngDropdowns/templates/dropdownMenu.html'));
+        var $template = angular.element($templateCache.get('ngWebControls/templates/dropdownMenu.html'));
         // Attach this controller to the element's data
         $template.data('$dropdownMenuController', this);
 
@@ -191,7 +209,7 @@ dd.directive('dropdownMenuItem', [
         };
       },
 
-      templateUrl: 'ngDropdowns/templates/dropdownMenuItem.html'
+      templateUrl: 'ngWebControls/templates/dropdownMenuItem.html'
     };
   }
 ]);

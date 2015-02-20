@@ -1,77 +1,30 @@
 'use strict';
 
-var app = angular.module('app', ['ngDropdowns']);
+var app = angular.module('app', ['ngWebControls']);
+
 
 app.controller('AppCtrl', function($scope) {
+  // options to customize controls
+    $scope.dropdownOptions = {
+        text: "test test"
+    }; 
+    
+  // build out store where this is pulling select options from a rest endpoint or some other static/fixture source
   $scope.ddSelectOptions = [
     {
-      text: 'Label',
+      text: 'Page Color',
       divider: true
     }, {
-      text: 'Option1',
-      value: 'one',
-      iconCls: 'someicon'
+      text: 'Green',
+      value: 'green'
     }, {
-      text: 'Option2',
-      someprop: 'somevalue'
-    }, {
-      divider: true
-    }, {
-      text: 'Option4',
-      href: 'http://www.google.com'
+      text: 'Red',
+      value: 'red'
     }
   ];
 
   $scope.ddSelectSelected = {
-    text: "Select an Option"
+    text: "Select an page option"
   };
-
-  $scope.ddMenuOptions = [
-    {
-      text: 'Label',
-      divider: true
-    }, {
-      text: 'Option1',
-      iconCls: 'someicon'
-    }, {
-      text: 'Option2'
-    }, {
-      divider: true
-    }, {
-      text: 'A link',
-      href: 'http://www.google.com'
-    }
-  ];
-
-  $scope.ddMenuSelected = {};
-  $scope.ddMenuOptions2 = [
-    {
-      name: 'Option2-1 Name',
-      iconCls: 'someicon'
-    }, {
-      name: 'Option2-2 Name'
-    }, {
-      divider: true
-    }, {
-      name: 'A link',
-      href: 'http://www.google.com'
-    }
-  ];
-
-  $scope.ddMenuSelected2 = {};
-  $scope.ddMenuOptions3 = [
-    {
-      text: 'Option3-1',
-      iconCls: 'someicon'
-    }, {
-      text: 'Option3-2'
-    }, {
-      divider: true
-    }, {
-      text: 'A link',
-      href: 'http://www.google.com'
-    }
-  ];
-
-  $scope.ddMenuSelected3 = {};
+    
 });
